@@ -43,6 +43,9 @@ const otpController = {
       const tokenResult = tokenService.generateToken(tokenData);
       return res.success(BaseSuccesMessage.SUCCESS, tokenResult);
     } catch (error) {
+      if (error.message == "jwt expired") {
+        res.errors("JWT hết hạn");
+      }
       next(error);
     }
   },

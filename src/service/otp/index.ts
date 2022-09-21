@@ -14,6 +14,8 @@ import { Error } from "mongoose";
 import { IOTPSerivce } from "./interface";
 import GetPhoneOTPRequestDTO from "../../dtos/request/otp/GetPhoneOTPRequestDTO";
 import env from "../../../config/env";
+import tokenService from "../token";
+import TokenDataResponseDTO from "../../dtos/response/token/TokenDataResponseDTO";
 
 const otpService: IOTPSerivce = {
   sendMail: async (getMailOTPRequestDTO: GetMailOTPRequestDTO) => {
@@ -28,18 +30,22 @@ const otpService: IOTPSerivce = {
           new Error(AuthErrorMessage.EMAIL_IS_NOT_VERIFIED)
         );
 
-      const otp = await OTP.findOne({ email: userEmail });
+      await OTP.deleteMany({ email: userEmail });
       const otpGenarate = generateOtp();
 
-      if (otp) {
-        otp.otp = await HashFunction.generate(otpGenarate);
-        await otp.save();
-      } else {
-        await OTP.create({
-          email: userEmail,
-          otp: await HashFunction.generate(otpGenarate),
-        });
-      }
+      const payload = {
+        data: { otp: otpGenarate },
+        secret: env.otp.secret,
+        expire_in: env.otp.expiresIn,
+      };
+
+      const tokenData = new TokenDataResponseDTO(payload);
+      console.log(tokenData);
+      const OTPToken: any = await tokenService.generateToken(tokenData);
+      await OTP.create({
+        email: userEmail,
+        otp: OTPToken.token,
+      });
 
       const templateMail = MAIL_TEMPLATE.OTP_TEMPLATE(otpGenarate);
 
@@ -78,17 +84,9 @@ const otpService: IOTPSerivce = {
 
       if (!otp)
         return Promise.reject(new Error(AuthErrorMessage.EMAIL_IS_NOT_EXIST));
-
-      let lifeTimeOTP = addMinutes(
-        new Date(otp.updatedAt.toString()),
-        OTP_CONFIG.lifeTime
-      );
-      if (lifeTimeOTP.getTime() < new Date().getTime())
-        return Promise.reject(new Error(AuthErrorMessage.EXPIRED_OTP));
-
-      if (!HashFunction.verify(OTPRequest.otp, otp.otp)) {
+      const verifyOTP = tokenService.verifyToken(otp.otp, env.otp.secret);
+      if (OTPRequest._otp !== verifyOTP.otp)
         return Promise.reject(new Error(AuthErrorMessage.OTP_NOT_MATCH));
-      }
 
       return Promise.resolve(
         new VerifyTokenResponseDTO({ email: OTPRequest.email })
