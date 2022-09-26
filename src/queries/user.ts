@@ -36,7 +36,6 @@ const userQuery: IUserQuery = {
         new UserResponseDTO().responseDTO(user)
       );
       const paginateResult = new ApiPaginateResult(users).toRESPONSE();
-
       return paginateResult;
     }
     return aggregates;

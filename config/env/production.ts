@@ -5,7 +5,7 @@ const { NODE_RICE_APP_PORT, NODE_RICE_APP_HOST, NODE_RICE_APP_URI } =
 
 export default {
   env: "production",
-  db: `mongodb+srv://unclerice:023657@cluster0.q7mqbnf.mongodb.net/CompanyDB?retryWrites=true&w=majority`,
+  db: `mongodb+srv://rice:023657@zing-mp3.dd9i6np.mongodb.net/zing_mp3_db?retryWrites=true&w=majority`,
   port: NODE_RICE_APP_PORT,
   app_host: NODE_RICE_APP_HOST,
   app_uri: NODE_RICE_APP_URI,
