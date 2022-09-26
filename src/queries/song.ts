@@ -14,19 +14,19 @@ const songQuery: ISongQuery = {
       ? { $text: { $search: `\"${options.search}\"` } }
       : {};
     const sortQuery = { created_at: -1 };
+
     const aggregates = Song.aggregate()
       .match({
-        ...query,
         ...searchQuery,
       })
       .sort(sortQuery);
-    console.log(aggregates);
-    if (!!options.is_paginate) {
+
+    if (options.is_paginate) {
       const songs: any = await Song.aggregatePaginateCustom(aggregates, {
         page: options.page,
         limit: options.limit,
       });
-      console.log(songs);
+
       songs.docs = songs?.docs.map((song) =>
         new SongResponseDTO().responseDTO(song)
       );

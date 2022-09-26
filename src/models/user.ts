@@ -1,4 +1,3 @@
-import { boolean } from "joi";
 import mongoose, { Types } from "mongoose";
 import { AVATAR_DEFAULT } from "../constants/user";
 
