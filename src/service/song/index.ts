@@ -12,9 +12,7 @@ import { IUserService } from "./interface";
 
 const songService: IUserService = {
   list: async (options: QueryOptions) => {
-    const query = {
-      is_active: true,
-    };
+    const query = {};
     const songs = await songQuery.getAll(query, options);
     return Promise.resolve(songs);
   },
