@@ -5,6 +5,7 @@ import fileRouter from "./file";
 import mailRouter from "./mail";
 import otpRouter from "./otp";
 import oauth2Router from "./oauth2";
+import songRouter from "./song";
 
 const router = express.Router();
 
@@ -17,5 +18,6 @@ router.use("/file", fileRouter);
 router.use("/mail", mailRouter);
 router.use("/otp", otpRouter);
 router.use("/oauth2", oauth2Router);
+router.use("/song", songRouter);
 
 export default router;
