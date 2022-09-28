@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import env from "../../../config/env";
 import QueryOptions from "../../dtos/QueryOptions";
 
 import { Song } from "../../models";

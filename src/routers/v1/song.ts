@@ -1,11 +1,14 @@
 import * as express from "express";
-import authMiddleWare from "../../middlewares/auth/authenMiddleWare";
+import fileUpload from "express-fileupload";
 import songController from "../../controller/api/song";
+import { ACCEPTED_FILE } from "../../constants/file";
+import fileController from "../../controller/api/file";
+import fileMiddleWare from "../../middlewares/file/fileMiddleWare";
 
 const router = express.Router({ mergeParams: true });
 
-router.route("/").get(songController.list);
-
 router.route("/:id").get(songController.get);
+
+router.route("/").get(songController.list).post(songController.create);
 
 export default router;

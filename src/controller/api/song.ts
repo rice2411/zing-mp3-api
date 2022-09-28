@@ -2,7 +2,7 @@ import { songService } from "../../service/song";
 import QueryOptions from "../../dtos/QueryOptions";
 import { PAGING_DEFAULT } from "../../constants/paging";
 import { BaseSuccesMessage } from "../../messages/success/base";
-import { Request } from "express";
+import axios from "axios";
 
 const SongController = {
   list: async (req, res, next) => {
@@ -30,6 +30,16 @@ const SongController = {
       const { id } = req.params;
       const song = await songService.get(id);
       return res.success(BaseSuccesMessage.SUCCESS, song);
+    } catch (error) {
+      next(error);
+    }
+  },
+  create: async (req, res, next) => {
+    try {
+      const files = req.files;
+      await axios.post("/api/v1/file", files);
+
+      res.send("DSADSAe");
     } catch (error) {
       next(error);
     }
