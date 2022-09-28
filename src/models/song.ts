@@ -1,5 +1,5 @@
 import mongoose, { Types } from "mongoose";
-import { SONG_DEFAULT } from "../constants/song";
+import { SONG_DEFAULT } from "../constants/model/song";
 
 const paginate = require("./plugins/paginate");
 const aggregatePaginate = require("./plugins/aggregatePaginate");
@@ -17,7 +17,7 @@ const SongSchema = new Schema(
       type: String,
       default: SONG_DEFAULT.IMAGE_DEFAULT,
     },
-    song: {
+    audio: {
       type: String,
       require: true,
     },
@@ -35,6 +35,22 @@ const SongSchema = new Schema(
       type: mongoose.Types.ObjectId,
       require: true,
     },
+    countryId: {
+      type: mongoose.Types.ObjectId,
+      require: true,
+    },
+    originOriginAbum: {
+      type: mongoose.Types.ObjectId,
+      require: true,
+    },
+    albumIds: {
+      type: Array,
+      require: true,
+    },
+    typeIds: {
+      type: Array,
+      require: true,
+    },
   },
   {
     timestamps: true,
@@ -45,12 +61,16 @@ export interface ISong extends mongoose.Document {
   _id: Types.ObjectId;
   name: string;
   image: string;
-  song: string;
+  audio: string;
   like: Number;
   view: Number;
   artistId: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
+  countryId: mongoose.Types.ObjectId;
+  originAlbumId: mongoose.Types.ObjectId;
+  albumIds: Array<mongoose.Types.ObjectId>;
+  typeIds: Array<mongoose.Types.ObjectId>;
   saveAsync(): any;
   removeAsync(): any;
 }
