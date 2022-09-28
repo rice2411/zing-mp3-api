@@ -25,7 +25,7 @@ const AlbumSchema = new Schema({
     require: true,
   },
   artistId: {
-    type: Types.ObjectId,
+    type: mongoose.Types.ObjectId,
     required: true,
   },
   typeIds: {

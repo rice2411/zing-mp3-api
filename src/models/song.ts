@@ -33,14 +33,17 @@ const SongSchema = new Schema(
     },
     artistId: {
       type: mongoose.Types.ObjectId,
+      default: SONG_DEFAULT.ARTIST_ID_DEFAULT,
       require: true,
     },
     countryId: {
       type: mongoose.Types.ObjectId,
+      default: SONG_DEFAULT.COUNTRY_ID_DEFAULT,
       require: true,
     },
-    originOriginAbum: {
+    originOriginAlbum: {
       type: mongoose.Types.ObjectId,
+      default: SONG_DEFAULT.SINGLE,
       require: true,
     },
     albumIds: {
