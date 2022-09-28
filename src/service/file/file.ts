@@ -3,6 +3,7 @@ import { FILE_PATH } from "../../constants/file";
 import { v4 as uuidv4 } from "uuid";
 import { configFilePath } from "../helper/file";
 import { BaseErrorMessage } from "../../messages/error/base";
+import fileValidation from "../../validation/file";
 
 interface IFileService {
   upload: (files: any) => Promise<any>;
@@ -11,6 +12,9 @@ interface IFileService {
 
 const fileService: IFileService = {
   upload: async (files) => {
+    const validateErrors = fileValidation.uploadRequest(files);
+    if (validateErrors.length) new Error(validateErrors?.[0]);
+
     let fileName = "";
     Object.keys(files).forEach((key) => {
       let extFile = path.extname(files[key].name);
