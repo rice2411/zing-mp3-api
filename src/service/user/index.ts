@@ -17,7 +17,7 @@ import { UserErrorMessage } from "../../messages/error/user";
 import { UserSuccessMessage } from "../../messages/success/user";
 import { PROVIDER } from "../../constants/provider";
 import GoogleRequestDTO from "../../dtos/request/oatuh2/GoogleRequestDTO";
-import { NAME_DEFAULT } from "../../constants/user";
+import { NAME_DEFAULT } from "../../constants/model/user";
 import FacebookRequestDTO from "../../dtos/request/oatuh2/FacbookRequestDTO";
 import GitHubRequestDTO from "../../dtos/request/oatuh2/GitHubRequestDTO";
 

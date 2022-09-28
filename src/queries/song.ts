@@ -5,6 +5,7 @@ import SongResponseDTO from "../dtos/response/song/SongResponseDTO";
 
 export interface ISongQuery {
   getAll: (searchParams: object, options: QueryOptions) => Promise<any>;
+  getById: (searchParams: object) => Promise<any>;
 }
 
 const songQuery: ISongQuery = {
@@ -34,6 +35,11 @@ const songQuery: ISongQuery = {
       return paginateResult;
     }
     return aggregates;
+  },
+  async getById(searchParams: object) {
+    const query = searchParams;
+    const song = await Song.aggregate().match({ ...query });
+    return song.length ? song[0] : null;
   },
 };
 

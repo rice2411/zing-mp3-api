@@ -2,6 +2,7 @@ import { songService } from "../../service/song";
 import QueryOptions from "../../dtos/QueryOptions";
 import { PAGING_DEFAULT } from "../../constants/paging";
 import { BaseSuccesMessage } from "../../messages/success/base";
+import { Request } from "express";
 
 const SongController = {
   list: async (req, res, next) => {
@@ -20,6 +21,15 @@ const SongController = {
       };
       const result = await songService.list(options);
       return res.success(BaseSuccesMessage.SUCCESS, result);
+    } catch (error) {
+      next(error);
+    }
+  },
+  get: async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const song = await songService.get(id);
+      return res.success(BaseSuccesMessage.SUCCESS, song);
     } catch (error) {
       next(error);
     }

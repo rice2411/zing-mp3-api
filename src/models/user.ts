@@ -1,5 +1,5 @@
 import mongoose, { Types } from "mongoose";
-import { AVATAR_DEFAULT } from "../constants/user";
+import { AVATAR_DEFAULT } from "../constants/model/user";
 
 const paginate = require("./plugins/paginate");
 const aggregatePaginate = require("./plugins/aggregatePaginate");

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { ACCOUNT_TYPE } from "../../../constants/account";
-import { NAME_DEFAULT } from "../../../constants/user";
+import { NAME_DEFAULT } from "../../../constants/model/user";
 export default class FacebookRequestDTO {
   public facebook_id?: string;
   public first_name?: string;

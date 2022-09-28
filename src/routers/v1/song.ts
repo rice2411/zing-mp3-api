@@ -6,4 +6,6 @@ const router = express.Router({ mergeParams: true });
 
 router.route("/").get(songController.list);
 
+router.route("/:id").get(songController.get);
+
 export default router;
