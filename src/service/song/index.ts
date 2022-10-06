@@ -7,6 +7,7 @@ import { songQuery } from "../../queries";
 import { ISongService } from "./interface";
 import { SongErrorMessage } from "../../messages/error/song/index";
 import SongResponseDTO from "../../dtos/response/song/SongResponseDTO";
+import CreateSongRequestDTO from "../../dtos/request/song/CreateSongRequestDTO";
 
 const songService: ISongService = {
   list: async (options: QueryOptions) => {
@@ -33,6 +34,14 @@ const songService: ISongService = {
       return Promise.resolve(response);
     } catch (err) {
       return Promise.reject(err);
+    }
+  },
+  create: async (createSongRequestDTO) => {
+    try {
+      const song = await Song.create(createSongRequestDTO);
+      return Promise.resolve(createSongRequestDTO);
+    } catch (error) {
+      return Promise.reject(error);
     }
   },
 };

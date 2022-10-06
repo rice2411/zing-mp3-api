@@ -12,26 +12,31 @@ interface IFileService {
 
 const fileService: IFileService = {
   upload: async (files) => {
-    const validateErrors = fileValidation.uploadRequest(files);
-    if (validateErrors.length) new Error(validateErrors?.[0]);
+    try {
+      const validateErrors = fileValidation.uploadRequest(files);
+      if (validateErrors.length)
+        return Promise.reject(new Error(validateErrors?.[0]));
 
-    let fileName = "";
-    Object.keys(files).forEach((key) => {
-      let extFile = path.extname(files[key].name);
-      let savePath = configFilePath(extFile);
-      fileName = uuidv4() + extFile;
-      const filepath = path.join(__dirname, "../..", savePath, fileName);
-      files[key].mv(filepath, (err) => {
-        if (err)
-          return Promise.reject(
-            new Error(BaseErrorMessage.SOME_THING_WENT_WRONG)
-          );
+      let fileUploads = [];
+      Object.keys(files).forEach((key) => {
+        let extFile = path.extname(files[key].name);
+        let savePath = configFilePath(extFile);
+        const fileName = uuidv4() + extFile;
+        fileUploads.push(fileName);
+        const filepath = path.join(__dirname, "../..", savePath, fileName);
+        files[key].mv(filepath, (err) => {
+          if (err)
+            return Promise.reject(
+              new Error(BaseErrorMessage.SOME_THING_WENT_WRONG)
+            );
+        });
       });
-    });
-
-    return Promise.resolve({
-      name: fileName,
-    });
+      return Promise.resolve(
+        fileUploads.length > 1 ? fileUploads : fileUploads[0]
+      );
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
   get: async (fileName, res, next) => {
     const savePath = configFilePath(path.extname(fileName));

@@ -2,7 +2,9 @@ import { songService } from "../../service/song";
 import QueryOptions from "../../dtos/QueryOptions";
 import { PAGING_DEFAULT } from "../../constants/paging";
 import { BaseSuccesMessage } from "../../messages/success/base";
-import axios from "axios";
+import fileService from "../../service/file/file";
+import CreateSongRequestDTO from "../../dtos/request/song/CreateSongRequestDTO";
+import { FILE_EXNTESION } from "../../constants/file";
 
 const SongController = {
   list: async (req, res, next) => {
@@ -37,9 +39,18 @@ const SongController = {
   create: async (req, res, next) => {
     try {
       const files = req.files;
-      await axios.post("/api/v1/file", files);
-
-      res.send("DSADSAe");
+      const fileUploads = await fileService.upload(files);
+      const createSongRequestDTO = new CreateSongRequestDTO({
+        ...req.body,
+        audio: fileUploads.find((file) =>
+          FILE_EXNTESION.AUDIO_EXTENSION.includes("." + file.split(".")[1])
+        ),
+        image: fileUploads.find((file) =>
+          FILE_EXNTESION.IMAGE_EXTENSION.includes("." + file.split(".")[1])
+        ),
+      });
+      const response = await songService.create(createSongRequestDTO);
+      res.send(response);
     } catch (error) {
       next(error);
     }
