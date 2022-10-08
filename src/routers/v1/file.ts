@@ -15,6 +15,9 @@ router
     fileController.upload
   );
 
-router.route("/:file").get(fileController.getFile);
+router
+  .route("/:file")
+  .get(fileController.getFile)
+  .delete(fileController.deleteFile);
 
 export default router;
