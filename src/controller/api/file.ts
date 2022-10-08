@@ -22,6 +22,15 @@ const fileController = {
       next(err);
     }
   },
+  deleteFile: async (req, res, next) => {
+    try {
+      const { file } = req.params;
+      const fileDelete = await fileService.delete(file);
+      res.success(BaseSuccesMessage.SUCCESS, fileDelete);
+    } catch (error) {
+      next(error);
+    }
+  },
 };
 
 export default fileController;

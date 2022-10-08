@@ -7,7 +7,7 @@ import { songQuery } from "../../queries";
 import { ISongService } from "./interface";
 import { SongErrorMessage } from "../../messages/error/song/index";
 import SongResponseDTO from "../../dtos/response/song/SongResponseDTO";
-import { deleteImageFile, configFilePath } from "../helper/file";
+import fileController from "../file/file";
 
 const songService: ISongService = {
   list: async (options: QueryOptions) => {
@@ -53,6 +53,8 @@ const songService: ISongService = {
       }
 
       if (errors.length) {
+        fileController.delete(createSongRequestDTO.audio);
+        fileController.delete(createSongRequestDTO.image);
         return Promise.reject(new Error(errors[0]));
       }
 

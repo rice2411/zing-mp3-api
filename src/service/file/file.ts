@@ -4,11 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import { configFilePath } from "../helper/file";
 import { BaseErrorMessage } from "../../messages/error/base";
 import fileValidation from "../../validation/file";
-
-interface IFileService {
-  upload: (files: any) => Promise<any>;
-  get: (fileName: string, res: any, next: any) => Promise<any>;
-}
+import { IFileService } from "./interface";
+import { deleteImageFile } from "../helper/file";
 
 const fileService: IFileService = {
   upload: async (files) => {
@@ -45,6 +42,17 @@ const fileService: IFileService = {
         next(err);
       }
     });
+  },
+  delete: async (fileName) => {
+    try {
+      const savePath = configFilePath(path.extname(fileName));
+      const deleteFile = deleteImageFile(
+        path.join(__dirname, "../..", savePath + fileName)
+      );
+      return Promise.resolve(deleteFile);
+    } catch (error) {
+      Promise.reject(error);
+    }
   },
 };
 
