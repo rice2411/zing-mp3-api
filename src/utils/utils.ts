@@ -39,33 +39,37 @@ export function isGreaterThanToday(mydate) {
     return true;
   }
 }
-export function validURL (str) {
-  var pattern = new RegExp('^(https?:\\/\\/)?'+
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+
-    '(\\#[-a-z\\d_]*)?$','i');
+export function validURL(str) {
+  var pattern = new RegExp(
+    "^(https?:\\/\\/)?" +
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
+      "((\\d{1,3}\\.){3}\\d{1,3}))" +
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" +
+      "(\\?[;&a-z\\d%_.~+=-]*)?" +
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  );
   return !!pattern.test(str);
 }
 
-export const validateProfileDate = (date): boolean =>{
-  let dateformat = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+export const validateProfileDate = (date): boolean => {
+  let dateformat =
+    /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
   return dateformat.test(date);
-}
+};
 
 export const isPhoneVietNam = (phone: any): boolean => {
   const PHONE_PATTERN = /^(09|01|07|08|03|05|[1|2|5|6|8|9])+([0-9]{8})$/;
   return PHONE_PATTERN.test(phone);
-}
+};
 
 export function isEmailValid(email): boolean {
   return /\S+@\S+\.\S+/.test(email);
 }
 
 export function checkURL(url) {
-  if (typeof url !== 'string') return false;
-  return (url.match(/\.(jpg|jpeg|gif|png)$/) != null);
+  if (typeof url !== "string") return false;
+  return url.match(/\.(jpg|jpeg|gif|png)$/) != null;
 }
 
 const setStringDate = (date: Date) => {
@@ -88,3 +92,5 @@ export const parseToLocalTime = (dateTime) => {
   let days = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
   return days[day] + ", " + setStringDate(currentDate);
 };
+
+export const isMongooseObjectId = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;

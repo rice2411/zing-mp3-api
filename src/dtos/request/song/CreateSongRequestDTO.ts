@@ -24,6 +24,6 @@ export default class CreateSongRequestDTO {
     this.typeIds =
       typeIds != "" && typeIds != null
         ? typeIds.map((typeId) => mongoose.Types.ObjectId(typeId))
-        : [];
+        : SONG_DEFAULT.TYPE_ID_DEFAULT;
   }
 }

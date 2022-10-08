@@ -4,7 +4,8 @@ import { PAGING_DEFAULT } from "../../constants/paging";
 import { BaseSuccesMessage } from "../../messages/success/base";
 import fileService from "../../service/file/file";
 import CreateSongRequestDTO from "../../dtos/request/song/CreateSongRequestDTO";
-import { FILE_EXNTESION } from "../../constants/file";
+import { FILE_EXTESION } from "../../constants/file";
+import songValidation from "../../validation/song/index";
 
 const SongController = {
   list: async (req, res, next) => {
@@ -40,17 +41,22 @@ const SongController = {
     try {
       const files = req.files;
       const fileUploads = await fileService.upload(files);
+
       const createSongRequestDTO = new CreateSongRequestDTO({
         ...req.body,
         audio: fileUploads.find((file) =>
-          FILE_EXNTESION.AUDIO_EXTENSION.includes("." + file.split(".")[1])
+          FILE_EXTESION.AUDIO_EXTENSION.includes("." + file.split(".")[1])
         ),
         image: fileUploads.find((file) =>
-          FILE_EXNTESION.IMAGE_EXTENSION.includes("." + file.split(".")[1])
+          FILE_EXTESION.IMAGE_EXTENSION.includes("." + file.split(".")[1])
         ),
       });
+      const validErrors =
+        songValidation.createSongRequest(createSongRequestDTO);
+      if (validErrors.length) return res.errors(validErrors[0], 400);
+
       const response = await songService.create(createSongRequestDTO);
-      res.send(response);
+      return res.success(BaseSuccesMessage.SUCCESS, response);
     } catch (error) {
       next(error);
     }
