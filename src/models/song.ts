@@ -16,6 +16,7 @@ const SongSchema = new Schema(
     image: {
       type: String,
       default: SONG_DEFAULT.IMAGE_DEFAULT,
+      require: true,
     },
     audio: {
       type: String,
@@ -23,13 +24,13 @@ const SongSchema = new Schema(
     },
     like: {
       type: Number,
-      required: true,
       default: SONG_DEFAULT.LIKE_DEFAULT,
+      require: true,
     },
     view: {
       type: Number,
-      require: true,
       default: SONG_DEFAULT.VIEW_DEFAULT,
+      require: true,
     },
     artistId: {
       type: mongoose.Types.ObjectId,
@@ -38,20 +39,22 @@ const SongSchema = new Schema(
     },
     countryId: {
       type: mongoose.Types.ObjectId,
-      default: SONG_DEFAULT.COUNTRY_ID_DEFAULT,
+      default: new mongoose.Types.ObjectId(SONG_DEFAULT.COUNTRY_ID_DEFAULT),
       require: true,
     },
     originOriginAlbum: {
       type: mongoose.Types.ObjectId,
-      default: SONG_DEFAULT.SINGLE,
+      default: new mongoose.Types.ObjectId(SONG_DEFAULT.SINGLE),
       require: true,
     },
     albumIds: {
       type: Array,
+      default: SONG_DEFAULT.ALBUM_ID_DEFAULT,
       require: true,
     },
     typeIds: {
       type: Array,
+      default: SONG_DEFAULT.TYPE_ID_DEFAULT,
       require: true,
     },
   },
