@@ -7,8 +7,15 @@ import fileMiddleWare from "../../middlewares/file/fileMiddleWare";
 
 const router = express.Router({ mergeParams: true });
 
-router.route("/:id").get(songController.get);
+router
+  .route("/:id")
+  .get(songController.get)
+  .put(fileUpload({ createParentPath: true }), songController.update)
+  .delete(songController.delete);
 
-router.route("/").get(songController.list).post(songController.create);
+router
+  .route("/")
+  .get(songController.list)
+  .post(fileUpload({ createParentPath: true }), songController.create);
 
 export default router;
