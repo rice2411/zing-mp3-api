@@ -10,7 +10,7 @@ const router = express.Router({ mergeParams: true });
 router
   .route("/:id")
   .get(songController.get)
-  .put(fileUpload({ createParentPath: true }), songController.create);
+  .put(fileUpload({ createParentPath: true }), songController.update);
 
 router
   .route("/")
