@@ -8,4 +8,5 @@ export interface ISongService {
   get: (options: mongoose.Types.ObjectId) => Promise<any>;
   create: (createSongRequestDTO: CreateSongRequestDTO) => Promise<any>;
   update: (updateSongRequestDTO: UpdateSongRequestDTO) => Promise<any>;
+  delete: (id: mongoose.Types.ObjectId) => Promise<any>;
 }

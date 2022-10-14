@@ -88,6 +88,15 @@ const SongController = {
       next(error);
     }
   },
+  delete: async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const song = await songService.delete(id);
+      return res.success(BaseSuccesMessage.SUCCESS, song);
+    } catch (error) {
+      next(error);
+    }
+  },
 };
 
 export default SongController;

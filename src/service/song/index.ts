@@ -8,6 +8,7 @@ import { ISongService } from "./interface";
 import { SongErrorMessage } from "../../messages/error/song/index";
 import SongResponseDTO from "../../dtos/response/song/SongResponseDTO";
 import fileService from "../file/file";
+import { SongSuccessMessage } from "../../messages/success/song/";
 
 const songService: ISongService = {
   list: async (options: QueryOptions) => {
@@ -79,9 +80,19 @@ const songService: ISongService = {
       if (request.albumIds) song.albumIds = request.albumIds;
       if (request.typeIds) song.typeIds = request.typeIds;
 
-      const songUpdate = await song.saveAsync();
-      const response = new SongResponseDTO().responseDTO(song);
-      return Promise.resolve(response);
+      await song.saveAsync();
+      return Promise.resolve(SongSuccessMessage.UPDATE_SONG_SUCCESS);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
+  delete: async (id) => {
+    try {
+      const song = await Song.findOne({ _id: id });
+      if (!song)
+        return Promise.reject(new Error(SongErrorMessage.SONG_NOT_FOUND));
+      await song.delete();
+      return Promise.resolve(SongSuccessMessage.DELETE_SONG_SUCCESS);
     } catch (error) {
       return Promise.reject(error);
     }
