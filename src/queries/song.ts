@@ -12,7 +12,7 @@ const songQuery: ISongQuery = {
   async getAll(searchParams: object, options: QueryOptions) {
     const query = searchParams;
     const searchQuery = options.search
-      ? { $text: { $search: `\"${options.search}\"` } }
+      ? { name: { $regex: options.search, $options: "i" } }
       : {};
     const sortQuery = { created_at: -1 };
 

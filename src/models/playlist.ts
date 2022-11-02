@@ -1,12 +1,12 @@
 import mongoose, { Types } from "mongoose";
-import { ALBUM_DEFAULT } from "../constants/model/album";
+import { PLAYLIST_DEFAULT } from "../constants/model/playlist";
 
 const paginate = require("./plugins/paginate");
 const aggregatePaginate = require("./plugins/aggregatePaginate");
 
 const Schema = mongoose.Schema;
 
-const AlbumSchema = new Schema({
+const PlaylistSchema = new Schema({
   name: {
     type: String,
     require: true,
@@ -15,10 +15,14 @@ const AlbumSchema = new Schema({
     type: String,
     require: true,
   },
+  type: {
+    type: String,
+    required: true,
+  },
   image: {
     type: String,
     required: true,
-    default: ALBUM_DEFAULT.IMAGE_DEFAULT,
+    default: PLAYLIST_DEFAULT.IMAGE_DEFAULT,
   },
   publicationYear: {
     type: Date,
@@ -66,12 +70,12 @@ export interface IAlbumModel extends mongoose.Model<IAlbum> {
   execAsync(): Promise<any>;
 }
 
-AlbumSchema.plugin(paginate);
-AlbumSchema.plugin(aggregatePaginate);
+PlaylistSchema.plugin(paginate);
+PlaylistSchema.plugin(aggregatePaginate);
 
-AlbumSchema.index({
+PlaylistSchema.index({
   name: "text",
 });
 
-const model = mongoose.model<IAlbum, IAlbumModel>("Album", AlbumSchema);
+const model = mongoose.model<IAlbum, IAlbumModel>("Album", PlaylistSchema);
 export { model as Album };
