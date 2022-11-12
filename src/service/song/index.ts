@@ -18,7 +18,8 @@ const songService: ISongService = {
     try {
       const query = { _id: new mongoose.Types.ObjectId(id) };
 
-      const song = await songQuery.getById(query);
+      const song = await Song.findOne(query);
+
       if (!song)
         return Promise.reject(new Error(SongErrorMessage.SONG_NOT_FOUND));
 
@@ -26,10 +27,15 @@ const songService: ISongService = {
         albumIds: song.originAlbumId,
         _id: { $ne: song._id },
       });
+      song.views = +song.views + 1;
+      song.originAlbumId = new mongoose.Types.ObjectId(song.originAlbumId);
+
+      song.save();
       const response = {
         song: new SongResponseDTO().responseDTO(song),
         songs: songs.map((song) => new SongResponseDTO().responseDTO(song)),
       };
+
       return Promise.resolve(response);
     } catch (err) {
       return Promise.reject(err);

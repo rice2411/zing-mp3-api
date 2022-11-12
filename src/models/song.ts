@@ -41,7 +41,7 @@ const SongSchema = new Schema(
       default: SONG_DEFAULT.COUNTRY_ID_DEFAULT,
       require: true,
     },
-    originOriginAlbum: {
+    originAlbumId: {
       type: mongoose.Types.ObjectId,
       default: SONG_DEFAULT.SINGLE,
       require: true,
