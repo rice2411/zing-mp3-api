@@ -26,7 +26,7 @@ const SongSchema = new Schema(
       required: true,
       default: SONG_DEFAULT.LIKE_DEFAULT,
     },
-    view: {
+    views: {
       type: Number,
       require: true,
       default: SONG_DEFAULT.VIEW_DEFAULT,
@@ -66,7 +66,7 @@ export interface ISong extends mongoose.Document {
   image: string;
   audio: string;
   like: Number;
-  view: Number;
+  views: Number;
   artistId: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;

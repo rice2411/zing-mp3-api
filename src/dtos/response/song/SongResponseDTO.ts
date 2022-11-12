@@ -8,7 +8,7 @@ export interface ISongResponseDTO {
   audio?: String;
   artistId?: Types.ObjectId;
   like?: Number;
-  view?: Number;
+  views?: Number;
   createdAt?: Date;
   updatedAt?: Date;
   countryId?: Types.ObjectId;
@@ -23,7 +23,7 @@ export default class SongResponseDTO {
   public _audio?: String;
   public _artistId?: Types.ObjectId;
   public _like?: Number;
-  public _view?: Number;
+  public _views?: Number;
   public _createdAt?: Date;
   public _updatedAt?: Date;
   public _countryId?: Types.ObjectId;
@@ -80,10 +80,10 @@ export default class SongResponseDTO {
   }
 
   get view() {
-    return this._view;
+    return this._views;
   }
-  setView(view: Number) {
-    this._view = view;
+  setViews(views: Number) {
+    this._views = views;
     return this;
   }
 
@@ -143,7 +143,7 @@ export default class SongResponseDTO {
       audio: this._audio,
       artistId: this._artistId,
       like: this._like,
-      view: this._view,
+      views: this._views,
       createdAt: this._createdAt,
       updatedAt: this._updatedAt,
       countryId: this._countryId,
@@ -163,7 +163,7 @@ export default class SongResponseDTO {
       .setImage(model.image)
       .setArtistId(model.artistId)
       .setLike(model.like)
-      .setView(model.view)
+      .setViews(model.views)
       .setCreatedAt(model.createdAt)
       .setUpdatedAt(model.updatedAt)
       .setCountryId(model.countryId)
