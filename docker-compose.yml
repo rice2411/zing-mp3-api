@@ -1,0 +1,17 @@
+version: "3.6"
+
+services:
+  zing-mp3-api:
+    image: zing-mp3-api
+    container_name: zing-mp3-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3002:3001"
+
+# networks:
+#   default:
+#     external:
+#       name: localhost
