@@ -1,3 +1,4 @@
+import fileUpload from "express-fileupload";
 import * as express from "express";
 import AlbumController from "../../controller/api/album";
 import authMiddleWare from "../../middlewares/auth/authenMiddleWare";
@@ -13,5 +14,12 @@ router.route("/get-top100").get(AlbumController.getTop100);
 router.route("/get-suggest-type").get(AlbumController.getSuggestType);
 router.route("/get-neighbour/:typeId").get(AlbumController.getNeighbourAlbum);
 router.route("/get-all").get(AlbumController.getAll);
-router.route("/:albumId").get(AlbumController.getDetailAlbum);
+router
+  .route("/")
+  .put(fileUpload({ createParentPath: true }), AlbumController.update)
+  .post(fileUpload({ createParentPath: true }), AlbumController.create);
+router
+  .route("/:albumId")
+  .get(AlbumController.getDetailAlbum)
+  .delete(AlbumController.delete);
 export default router;

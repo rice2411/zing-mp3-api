@@ -11,12 +11,105 @@ import SongResponseDTO from "../../dtos/response/song/SongResponseDTO";
 import { Library } from "../../models/library";
 import AlbumResponseDTO from "../../dtos/response/album/albumResponseDTO";
 import { ApiPaginateResult } from "../../helpers";
+import fileService from "../file/file";
 
 const albumService: IAlbumService = {
+  update: async (request) => {
+    try {
+      const album = await Album.findOne({
+        _id: new mongoose.Types.ObjectId(request.albumId),
+      }).exec();
+      if (!album) Promise.resolve(new Error("Không tìm thấy"));
+
+      if (request.name) {
+        album.name = request.name;
+      }
+      if (request.publicationYear) {
+        album.publicationYear = request.publicationYear;
+      }
+      if (request.artistId) {
+        const id = [];
+        request.artistId.map((item: any) => {
+          id.push(new mongoose.Types.ObjectId(item.value));
+        });
+        album.artistId = id;
+      }
+      if (request.typeIds) {
+        const id = [];
+        request.typeIds.map((item: any) => {
+          id.push(new mongoose.Types.ObjectId(item.value));
+        });
+        album.typeIds = id;
+      }
+
+      if (request.description) {
+        album.description = request.description;
+      }
+      const file = request.avatar;
+      if (file) {
+        const response = await fileService.upload(file);
+        if (response) {
+          album.image = response.name;
+        }
+      }
+      const result = await album.saveAsync();
+
+      return Promise.resolve(result);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  },
+  delete: async (albumId) => {
+    try {
+      // Register success
+
+      const album = await Album.findOne({
+        _id: new mongoose.Types.ObjectId(albumId),
+      }).exec();
+      album.isDelete = true;
+      const result = album.saveAsync();
+
+      return Promise.resolve(result);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  },
+  create: async (request) => {
+    try {
+      // Register success
+
+      const album = new Album(request);
+
+      const typeIds = [];
+      request.typeIds.map((item: any) => {
+        typeIds.push(new mongoose.Types.ObjectId(item.value));
+      });
+      album.typeIds = typeIds;
+
+      const artistId = [];
+      request.artistId.map((item: any) => {
+        artistId.push(new mongoose.Types.ObjectId(item.value));
+      });
+      album.artistId = artistId;
+      const file = request.image;
+      if (file) {
+        const response = await fileService.upload(file);
+        if (response) {
+          album.image = response.name;
+        }
+      }
+
+      const albumSave = await album.saveAsync();
+
+      return Promise.resolve(albumSave);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  },
   getAll: async (searchParams, options) => {
     const query = searchParams;
     const searchQuery = options.search
-      ? { $text: { $search: `\"${options.search}\"` } }
+      ? { name: { $regex: options.search, $options: "i" } }
       : {};
     const sortQuery = { createdAt: -1 };
     const aggregates = Album.aggregate()
@@ -47,6 +140,8 @@ const albumService: IAlbumService = {
           image: album.image,
           authors: artists,
           description: album.description,
+          typeIds: album.typeIds,
+          artistId: album.artistId,
         });
         return newAlbum;
       })

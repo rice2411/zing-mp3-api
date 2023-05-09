@@ -69,6 +69,10 @@ const SongSchema = new Schema(
     lyrics: {
       type: Object,
     },
+    isDelete: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
@@ -94,6 +98,7 @@ export interface ISong extends mongoose.Document {
   totalViews: Number;
   is_vip: Boolean;
   lyrics: Object;
+  isDelete: boolean;
   saveAsync(): any;
   removeAsync(): any;
 }

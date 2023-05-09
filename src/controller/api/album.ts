@@ -5,6 +5,48 @@ import { BaseSuccesMessage } from "../../messages/success/base";
 import { albumService } from "../../service/album";
 
 const AlbumController = {
+  update: async (req, res, next) => {
+    try {
+      const { name, description, typeIds, albumId, artistId } = req.body;
+      const files = req.files;
+      const result = await albumService.update({
+        albumId: albumId,
+        name: name,
+        description: description,
+        typeIds: JSON.parse(typeIds),
+        avatar: files,
+        artistId: JSON.parse(artistId),
+      });
+      return res.success(BaseSuccesMessage.SUCCESS, result);
+    } catch (err) {
+      next(err);
+    }
+  },
+  delete: async (req, res, next) => {
+    try {
+      const { albumId } = req.params;
+      const result = await albumService.delete(albumId);
+      return res.success(BaseSuccesMessage.SUCCESS, result);
+    } catch (err) {
+      next(err);
+    }
+  },
+  create: async (req, res, next) => {
+    try {
+      const { name, description, artistId, typeIds } = req.body;
+      const files = req.files;
+      const result = await albumService.create({
+        name: name,
+        description: description,
+        typeIds: JSON.parse(typeIds),
+        artistId: JSON.parse(artistId),
+        image: files,
+      });
+      return res.success(BaseSuccesMessage.SUCCESS, result);
+    } catch (err) {
+      next(err);
+    }
+  },
   getAll: async (req, res, next) => {
     try {
       const search = req?.query.search;
@@ -19,7 +61,7 @@ const AlbumController = {
             ? false
             : true,
       };
-      const response = await albumService.getAll({}, options);
+      const response = await albumService.getAll({ isDelete: false }, options);
       return res.success(BaseSuccesMessage.SUCCESS, response);
     } catch (err) {
       next(err);

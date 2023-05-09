@@ -352,7 +352,10 @@ export const searchService: ISearchService = {
     return Promise.resolve(resultSuggest);
   },
   queryAll: async (queryParam: any) => {
-    const query = { name: { $regex: queryParam, $options: "i" } };
+    const query = {
+      name: { $regex: queryParam, $options: "i" },
+      isDelete: false,
+    };
     const hubs = await Hub.find(query);
     const songs = await Song.find(query);
     const songWithAritist = await Promise.all(

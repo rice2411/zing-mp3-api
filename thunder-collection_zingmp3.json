@@ -1,0 +1,1192 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "zingmp3",
+    "dateExported": "2023-05-08T09:04:25.903Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "cfeda8f4-de15-4504-bc3c-1b9451a7d5cc",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.184Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.185Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "e74df3f7-3f3b-43ef-a951-1ad3be7a1e17",
+            "name": "File",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.186Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "a42c13d0-a60c-4d60-855a-18fdc7a64b6e",
+            "name": "Mail",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.187Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "78a78426-9dc1-4e71-9443-21892e6abd15",
+            "name": "OTP",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.188Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "3f11ca5d-6dc8-42ab-9891-2c945ad51149",
+            "name": "OAuth2",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.189Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "9c3c0189-0064-4d91-8513-29d30b1772e2",
+            "name": "Song",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.190Z",
+            "sortNum": 70000
+        },
+        {
+            "_id": "4bbb215c-aa3f-48e4-a36c-760ff0348f66",
+            "name": "Banner",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.191Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "8de294bf-f996-40e6-a967-a965d20223d3",
+            "name": "Album",
+            "containerId": "",
+            "created": "2023-04-21T19:22:31.192Z",
+            "sortNum": 90000
+        },
+        {
+            "_id": "af87dd56-81cd-43c7-9e8d-275b810f4149",
+            "name": "Chart",
+            "containerId": "",
+            "created": "2023-04-21T19:30:06.318Z",
+            "sortNum": 100000
+        },
+        {
+            "_id": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "Library",
+            "containerId": "",
+            "created": "2023-04-21T19:30:18.787Z",
+            "sortNum": 120000
+        },
+        {
+            "_id": "0315a885-10d4-4c31-b4f6-9fb63a1ea68a",
+            "name": "Search",
+            "containerId": "",
+            "created": "2023-04-21T19:30:24.872Z",
+            "sortNum": 130000
+        },
+        {
+            "_id": "cf618477-767d-4565-b3fa-94b1f84413f5",
+            "name": "Artist",
+            "containerId": "",
+            "created": "2023-04-21T19:30:37.990Z",
+            "sortNum": 140000
+        },
+        {
+            "_id": "c3394638-d246-4e7b-91fc-efc7b95af688",
+            "name": "Payment",
+            "containerId": "",
+            "created": "2023-04-22T02:48:25.608Z",
+            "sortNum": 150000
+        },
+        {
+            "_id": "8f04ea2c-8c49-41a9-a2d8-6276c093354d",
+            "name": "Hub",
+            "containerId": "",
+            "created": "2023-04-22T14:30:18.750Z",
+            "sortNum": 160000
+        },
+        {
+            "_id": "09c95912-7914-4ff2-9677-57255201dc02",
+            "name": "Country",
+            "containerId": "",
+            "created": "2023-04-22T17:35:20.991Z",
+            "sortNum": 170000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "177ddcec-f4d2-498b-ba8d-063e2de35dc3",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "cfeda8f4-de15-4504-bc3c-1b9451a7d5cc",
+            "name": "login",
+            "url": "{{host-local}}/api/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-04-21T19:22:31.185Z",
+            "modified": "2023-04-28T04:16:10.238Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"rice\",\n    \"password\": \"111111\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "46670204-e2a2-4e6f-ae23-40c6ceb66a22",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "cf618477-767d-4565-b3fa-94b1f84413f5",
+            "name": "get",
+            "url": "{{host-local}}/api/v1/artist/get/64577848f6945040c9bad371",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-21T19:31:00.539Z",
+            "modified": "2023-04-25T09:41:54.738Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "cc6f74cd-703a-4d9a-8460-daa3f89a25e5",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "af87dd56-81cd-43c7-9e8d-275b810f4149",
+            "name": "get",
+            "url": "{{host-local}}/api/v1/chart/get?option=10",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-21T19:37:50.342Z",
+            "modified": "2023-04-22T11:19:27.783Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "option",
+                    "value": "10",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "00d96f0e-9439-47f1-aeaa-d9cd946a2c41",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "0315a885-10d4-4c31-b4f6-9fb63a1ea68a",
+            "name": "search-full",
+            "url": "{{host-local}}/api/v1/search/search-full?tab=songs&search=rock",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-21T19:40:25.501Z",
+            "modified": "2023-04-24T02:59:41.282Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tab",
+                    "value": "songs",
+                    "isPath": false
+                },
+                {
+                    "name": "search",
+                    "value": "rock",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "0b8836fa-0f09-4a30-b042-9c86ab21eb69",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "get",
+            "url": "{{host-local}}/api/v1/library/get",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-21T19:41:17.846Z",
+            "modified": "2023-05-04T01:58:48.039Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjp0cnVlLCJpYXQiOjE2ODMxNjU1MTcsImV4cCI6MTcxNDcyMzExN30.mN1UQ5pWg3lghA65iW0pNluvjTDaQ2Qiwmi1q_uJNUY"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1129d765-6d39-468f-bc25-934e99e31b48",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "create-playlist",
+            "url": "{{host-local}}/api/v1/library/create-playlist",
+            "method": "POST",
+            "sortNum": 10312.5,
+            "created": "2023-04-28T04:10:04.644Z",
+            "modified": "2023-04-28T07:47:54.910Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"test\",\n    \"type\": \"playlist\",\n    \"description\": \"hihi\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjp0cnVlLCJpYXQiOjE2ODI2NTUzNzAsImV4cCI6MTcxNDIxMjk3MH0.-CZzEg4ewJIO6rSsW2rjZ3Xbw8_ccr3NTKk_gpCH1M0"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7b202ddb-5547-4477-a651-9bd32c38699d",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "like-artist",
+            "url": "{{host-local}}/api/v1/chart/get",
+            "method": "GET",
+            "sortNum": 10625,
+            "created": "2023-04-21T19:41:35.678Z",
+            "modified": "2023-04-21T19:41:35.678Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "b7b10fb7-59a9-4f3b-bd84-d4a7546678a3",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "like-album",
+            "url": "{{host-local}}/api/v1/chart/get",
+            "method": "GET",
+            "sortNum": 11250,
+            "created": "2023-04-21T19:41:34.354Z",
+            "modified": "2023-04-21T19:41:34.354Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "0e0a952d-7d3d-4d21-b2a4-db88c7722531",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "like-song",
+            "url": "{{host-local}}/api/v1/chart/get",
+            "method": "GET",
+            "sortNum": 12500,
+            "created": "2023-04-21T19:41:33.274Z",
+            "modified": "2023-04-21T19:41:33.274Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "704467d6-a66f-473c-9f49-1e8660f56048",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "add-album-history",
+            "url": "{{host-local}}/api/v1/chart/get",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-04-21T19:41:31.373Z",
+            "modified": "2023-04-21T19:41:31.373Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "35f0e565-ded5-4f60-aaaf-9f76fa8d1e9e",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "cfeda8f4-de15-4504-bc3c-1b9451a7d5cc",
+            "name": "verify",
+            "url": "{{host}}/api/v1/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-04-21T19:22:31.186Z",
+            "modified": "2023-04-21T19:22:31.186Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"username\": \"chou\",\r\n    \"password\": \"023657\"\r\n}\r\n"
+            }
+        },
+        {
+            "_id": "a4f87013-1b4c-4a65-9ca3-22072a2ed66b",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "cf618477-767d-4565-b3fa-94b1f84413f5",
+            "name": "appear-in",
+            "url": "{{host-local}}/api/v1/artist/appear-in/62ba690129c1260f0cb734c2",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-04-21T19:31:25.504Z",
+            "modified": "2023-04-21T19:32:30.662Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "2edbc8ac-ab15-4cc5-8f79-2977680bc671",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "0315a885-10d4-4c31-b4f6-9fb63a1ea68a",
+            "name": "search-suggest",
+            "url": "{{host-local}}/api/v1/chart/get",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-04-21T19:40:38.339Z",
+            "modified": "2023-04-21T19:40:38.339Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "f62e66eb-a6b9-4f5c-8bb0-bfc1016a18f5",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "get-recent-playlist",
+            "url": "{{host-local}}/api/v1/library/get-recent-album",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2023-04-21T19:22:31.210Z",
+            "modified": "2023-04-21T19:43:40.189Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjp0cnVlLCJpYXQiOjE2ODIxMDU3MjYsImV4cCI6MTcxMzY2MzMyNn0.vGvcnFaGUSEBjk15omIopfA8ztFr5zgZ4FoCfuBZ2lg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "20bd0610-48bb-40e2-b855-cf7c886025a3",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "cfeda8f4-de15-4504-bc3c-1b9451a7d5cc",
+            "name": "register",
+            "url": "{{host-local}}/api/v1/auth/register",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-04-21T19:22:31.187Z",
+            "modified": "2023-04-26T06:59:04.019Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"chou\",\n    \"password\": \"0236\",\n    \"email\": \"email@gmail.com\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "91783d13-182c-456e-953c-ec1b51d798f9",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "get-playlist",
+            "url": "{{host-local}}/api/v1/library/get-playlist",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2023-04-27T03:42:50.586Z",
+            "modified": "2023-04-27T03:43:17.415Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjp0cnVlLCJpYXQiOjE2ODIxMDU3MjYsImV4cCI6MTcxMzY2MzMyNn0.vGvcnFaGUSEBjk15omIopfA8ztFr5zgZ4FoCfuBZ2lg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "666ed3c7-bfcf-4e47-84a2-5acb358e1f91",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "cfeda8f4-de15-4504-bc3c-1b9451a7d5cc",
+            "name": "reset-password",
+            "url": "{{host}}/api/v1/auth/reset-password",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-04-21T19:22:31.188Z",
+            "modified": "2023-04-21T19:22:31.188Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"username\": \"chou\",\r\n    \"password\": \"023657\"\r\n}\r\n"
+            }
+        },
+        {
+            "_id": "6a6161e0-7d67-4468-838b-738341aec6c3",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "play-new-playlist",
+            "url": "{{host-local}}/api/v1/library/play-new-playlist",
+            "method": "GET",
+            "sortNum": 45000,
+            "created": "2023-04-27T03:43:02.414Z",
+            "modified": "2023-04-29T03:15:19.729Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjp0cnVlLCJpYXQiOjE2ODIxMDU3MjYsImV4cCI6MTcxMzY2MzMyNn0.vGvcnFaGUSEBjk15omIopfA8ztFr5zgZ4FoCfuBZ2lg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "85d1ab8e-1668-4f37-8d95-0484521237af",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "get-all-user",
+            "url": "{{host-local}}/api/v1/user",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-04-21T19:22:31.189Z",
+            "modified": "2023-04-21T19:22:31.189Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "070aaffe-f405-4c90-8d58-7ebab03a4061",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "add-to-playinglist",
+            "url": "{{host-local}}/api/v1/library/get-recent-album",
+            "method": "GET",
+            "sortNum": 55000,
+            "created": "2023-04-29T02:14:41.174Z",
+            "modified": "2023-04-29T02:14:41.174Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjp0cnVlLCJpYXQiOjE2ODIxMDU3MjYsImV4cCI6MTcxMzY2MzMyNn0.vGvcnFaGUSEBjk15omIopfA8ztFr5zgZ4FoCfuBZ2lg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3151ce62-ec4f-4378-9f14-232e4e2c3fb2",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "get-me",
+            "url": "{{host}}/api/v1/user",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-04-21T19:22:31.190Z",
+            "modified": "2023-04-21T19:22:31.190Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "3262b20a-0035-4630-b5fd-6d06b5ad0898",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c6597fda-456e-4616-a505-8a7bc3dbe166",
+            "name": "get-own-playlist",
+            "url": "{{host-local}}/api/v1/library/get-recent-album",
+            "method": "GET",
+            "sortNum": 65000,
+            "created": "2023-05-04T03:36:17.074Z",
+            "modified": "2023-05-04T03:36:17.074Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjp0cnVlLCJpYXQiOjE2ODIxMDU3MjYsImV4cCI6MTcxMzY2MzMyNn0.vGvcnFaGUSEBjk15omIopfA8ztFr5zgZ4FoCfuBZ2lg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "45c23a9e-2e7e-4ddf-bd6f-f1aba843f0a4",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "get-user-by-id",
+            "url": "{{host}}/api/v1/user/62ba690129c1260f0cb734bc",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-04-21T19:22:31.191Z",
+            "modified": "2023-04-21T19:22:31.191Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "d2eabb5e-dd4b-4ca5-bc77-51d251f72ba8",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "update-user-by-id",
+            "url": "{{host}}/api/v1/user/62ba690129c1260f0cb734bc",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2023-04-21T19:22:31.192Z",
+            "modified": "2023-04-21T19:22:31.192Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "af462e17-6246-44f2-854a-ff3fb37c0420",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "deactive-user-by-id",
+            "url": "{{host-local}}/api/v1/user/deactive",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-04-21T19:22:31.193Z",
+            "modified": "2023-04-21T19:22:31.193Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"listUserId\": [\"62ba690129c1260f0cb734bc\"]\r\n}"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "2d8e8686-6c7f-40b1-8f1a-6def55ef2426",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "remove-test-data",
+            "url": "{{host-local}}/api/v1/user/remove-test-data",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2023-04-21T19:22:31.194Z",
+            "modified": "2023-04-21T19:22:31.194Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "0ac72fd9-5398-4c32-b8a5-08abcca4f31e",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "eb3c79d4-d8f1-4cfc-9a49-bfccf9af87ef",
+            "name": "import-list",
+            "url": "{{host-local}}/api/v1/user/import-list",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-04-21T19:22:31.195Z",
+            "modified": "2023-04-21T19:22:31.195Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"listUser\": [{\"username\": \"test\", \"passowrd\":\"testttt\"},{\"username\": \"test1\", \"passowrd\":\"testttt\"}]\r\n}"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "86c17543-08ee-4ede-97dd-9c6a7ad4b2a8",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "e74df3f7-3f3b-43ef-a951-1ad3be7a1e17",
+            "name": "upload",
+            "url": "{{host}}/api/v1/file",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-04-21T19:22:31.196Z",
+            "modified": "2023-04-21T19:22:31.196Z",
+            "headers": [],
+            "body": {
+                "form": [],
+                "files": [
+                    {
+                        "name": "",
+                        "value": []
+                    }
+                ],
+                "type": "formdata"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "9da318e7-ec2e-452b-839e-bc87687ddffe",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "e74df3f7-3f3b-43ef-a951-1ad3be7a1e17",
+            "name": "get-file",
+            "url": "{{host}}/api/v1/file",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-04-21T19:22:31.197Z",
+            "modified": "2023-04-21T19:22:31.197Z",
+            "headers": [],
+            "body": {
+                "form": [],
+                "files": [
+                    {
+                        "name": "",
+                        "value": []
+                    }
+                ],
+                "type": "formdata"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "e4d92197-f6c8-4082-90ee-b7e964fb597d",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "e74df3f7-3f3b-43ef-a951-1ad3be7a1e17",
+            "name": "QR",
+            "url": "{{host}}/api/v1/file",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-04-21T19:22:31.198Z",
+            "modified": "2023-04-21T19:22:31.198Z",
+            "headers": [],
+            "body": {
+                "form": [],
+                "files": [
+                    {
+                        "name": "",
+                        "value": []
+                    }
+                ],
+                "type": "formdata"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "d71d774e-2239-47cd-92dd-5bb9305da636",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "a42c13d0-a60c-4d60-855a-18fdc7a64b6e",
+            "name": "send-mail",
+            "url": "{{host-local}}/api/v1/mail",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-04-21T19:22:31.199Z",
+            "modified": "2023-04-26T07:24:41.423Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"haphuonghoangmai@gmail.com\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJ1c2VybmFtZSI6InJpY2UiLCJpYXQiOjE2NjI1NzMyMjIsImV4cCI6MTY2MjY1OTYyMn0.C7ftmcM15_k3kDv_mzPTcivwW3EUo-tRS1WA7AFShJg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "18bd949a-e26a-4833-a77b-ed4a2974d668",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "a42c13d0-a60c-4d60-855a-18fdc7a64b6e",
+            "name": "verify-email",
+            "url": "{{host-local}}/api/v1/mail/verify?email=tonthatanhminhktpm@gmail.com",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2023-04-21T19:22:31.200Z",
+            "modified": "2023-04-21T19:22:31.200Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "email",
+                    "value": "tonthatanhminhktpm@gmail.com"
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "fa29a9b7-f5d5-4664-893f-90facb132ab7",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "a42c13d0-a60c-4d60-855a-18fdc7a64b6e",
+            "name": "verify-email",
+            "url": "{{host-local}}/api/v1/mail/verify",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2023-04-21T19:22:31.201Z",
+            "modified": "2023-04-21T19:22:31.201Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "email",
+                    "value": "tonthatanhminhktpm@gmail.com",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZGF0YSI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJfc2VjcmV0IjoiOGUyNDRkY2MtOGI0Mi00YWU5LThkMmItY2VjNDlhYTFlYzVjIiwiaWF0IjoxNjYyODA3NTY5LCJleHAiOjE2NjI4OTM5Njl9.aC3qM2CRSxKhq-3OCS9tCWo2GP7eIfz3XkUOwzxE-5Y\",\r\n    \"email\": \"tonthatanhminhktpm@gmail.com\"\r\n}"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "67202289-472a-4002-82d6-943dc29daa7e",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "78a78426-9dc1-4e71-9443-21892e6abd15",
+            "name": "send-mail",
+            "url": "{{host-local}}/api/v1/otp/send-mail?email=tonthatanhminhktpm@gmail.com",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2023-04-21T19:22:31.202Z",
+            "modified": "2023-04-21T19:22:31.202Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "email",
+                    "value": "tonthatanhminhktpm@gmail.com"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"email\": \"tonthatanhminhktpm@gmail.com\"\r\n}"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJ1c2VybmFtZSI6InJpY2UiLCJpYXQiOjE2NjI1NzMyMjIsImV4cCI6MTY2MjY1OTYyMn0.C7ftmcM15_k3kDv_mzPTcivwW3EUo-tRS1WA7AFShJg"
+            }
+        },
+        {
+            "_id": "6e185352-e014-481e-bd95-3bad4d59ac9f",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "78a78426-9dc1-4e71-9443-21892e6abd15",
+            "name": "send-phone",
+            "url": "{{host-local}}/api/v1/otp/send-mail?email=tonthatanhminhktpm@gmail.com",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2023-04-21T19:22:31.203Z",
+            "modified": "2023-04-21T19:22:31.203Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "email",
+                    "value": "tonthatanhminhktpm@gmail.com"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"email\": \"tonthatanhminhktpm@gmail.com\"\r\n}"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJ1c2VybmFtZSI6InJpY2UiLCJpYXQiOjE2NjI1NzMyMjIsImV4cCI6MTY2MjY1OTYyMn0.C7ftmcM15_k3kDv_mzPTcivwW3EUo-tRS1WA7AFShJg"
+            }
+        },
+        {
+            "_id": "a402fe57-b2b4-433c-8d5b-bb8a92c54dee",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "78a78426-9dc1-4e71-9443-21892e6abd15",
+            "name": "verify",
+            "url": "{{host-local}}/api/v1/auth/send-mail-otp",
+            "method": "POST",
+            "sortNum": 200000,
+            "created": "2023-04-21T19:22:31.204Z",
+            "modified": "2023-04-21T19:22:31.204Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"email\": \"tonthatanhminhktpm@gmail.com\"\r\n}"
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJ1c2VybmFtZSI6InJpY2UiLCJpYXQiOjE2NjI1NzMyMjIsImV4cCI6MTY2MjY1OTYyMn0.C7ftmcM15_k3kDv_mzPTcivwW3EUo-tRS1WA7AFShJg"
+            }
+        },
+        {
+            "_id": "e33e73c9-abcc-49b6-8dc0-fb24f31af80b",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "3f11ca5d-6dc8-42ab-9891-2c945ad51149",
+            "name": "google-auth",
+            "url": "{{host-local}}/api/v1/oauth2/google",
+            "method": "GET",
+            "sortNum": 210000,
+            "created": "2023-04-21T19:22:31.205Z",
+            "modified": "2023-04-21T19:22:31.205Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"username\": \"rice\",\r\n    \"password\": \"023657\"\r\n}\r\n"
+            }
+        },
+        {
+            "_id": "dbf5bed0-9227-4a0a-bf10-93baa738e902",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "3f11ca5d-6dc8-42ab-9891-2c945ad51149",
+            "name": "facebook-auth",
+            "url": "{{host-local}}/api/v1/oauth2/facebook",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2023-04-21T19:22:31.206Z",
+            "modified": "2023-04-21T19:22:31.206Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"username\": \"rice\",\r\n    \"password\": \"023657\"\r\n}\r\n"
+            }
+        },
+        {
+            "_id": "06074202-9878-4ee2-8bc9-25640810a936",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "3f11ca5d-6dc8-42ab-9891-2c945ad51149",
+            "name": "github-auth",
+            "url": "{{host-local}}/api/v1/oauth2/github",
+            "method": "GET",
+            "sortNum": 230000,
+            "created": "2023-04-21T19:22:31.207Z",
+            "modified": "2023-04-21T19:22:31.207Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"username\": \"rice\",\r\n    \"password\": \"023657\"\r\n}\r\n"
+            }
+        },
+        {
+            "_id": "5053d8c3-e71f-4352-96e7-a450dff70799",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "9c3c0189-0064-4d91-8513-29d30b1772e2",
+            "name": "get",
+            "url": "{{host-local}}/api/v1/song/63317848f6945040c9bad371",
+            "method": "GET",
+            "sortNum": 240000,
+            "created": "2023-04-21T19:22:31.208Z",
+            "modified": "2023-04-25T13:23:32.863Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "20dbe6c6-b9d5-46d1-a60e-1940acd54e8d",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "9c3c0189-0064-4d91-8513-29d30b1772e2",
+            "name": "get-lyrics",
+            "url": "{{host-local}}/api/v1/song/get-lyrics/63317848f6945040c9bad371",
+            "method": "GET",
+            "sortNum": 245000,
+            "created": "2023-04-25T13:24:19.212Z",
+            "modified": "2023-04-25T13:24:34.660Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "05c45d35-21c6-4f79-ad68-9466a7541590",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "4bbb215c-aa3f-48e4-a36c-760ff0348f66",
+            "name": "get-all-banner",
+            "url": "{{host-local}}/api/v1/banner/get-all",
+            "method": "GET",
+            "sortNum": 250000,
+            "created": "2023-04-21T19:22:31.209Z",
+            "modified": "2023-04-21T19:37:33.601Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "aa89a110-c712-4614-a078-0008f815e5f5",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "9c3c0189-0064-4d91-8513-29d30b1772e2",
+            "name": "get-new-release",
+            "url": "{{host-local}}/api/v1/song/get-new-release",
+            "method": "GET",
+            "sortNum": 250000,
+            "created": "2023-04-21T19:39:11.283Z",
+            "modified": "2023-04-21T19:39:32.572Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "400864a3-6e5f-4ed0-ae27-2ef8c4c665df",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "9c3c0189-0064-4d91-8513-29d30b1772e2",
+            "name": "increase-view",
+            "url": "{{host-local}}/api/v1/song//increase-views/64577848f6945040c9bad371",
+            "method": "GET",
+            "sortNum": 260000,
+            "created": "2023-04-21T19:39:12.688Z",
+            "modified": "2023-04-21T19:40:04.971Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "7a3d8663-6741-4608-aeb8-8f1fa2ccb9f3",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8de294bf-f996-40e6-a967-a965d20223d3",
+            "name": "get-suggest",
+            "url": "{{host-local}}/api/v1/album/get-suggest",
+            "method": "GET",
+            "sortNum": 270000,
+            "created": "2023-04-21T19:22:31.211Z",
+            "modified": "2023-04-21T19:35:50.704Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5b9ea69c-410d-4e48-8294-91c8bb2c0dc9",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8de294bf-f996-40e6-a967-a965d20223d3",
+            "name": "get-daily-topic",
+            "url": "{{host-local}}/api/v1/album/get-daily-topic",
+            "method": "GET",
+            "sortNum": 280000,
+            "created": "2023-04-21T19:22:31.212Z",
+            "modified": "2023-04-21T19:36:02.505Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7a4a43be-fbd9-4890-bd67-00be499a2e61",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8de294bf-f996-40e6-a967-a965d20223d3",
+            "name": "get-top100",
+            "url": "{{host-local}}/api/v1/album/get-top100",
+            "method": "GET",
+            "sortNum": 290000,
+            "created": "2023-04-21T19:22:31.213Z",
+            "modified": "2023-04-21T19:36:08.857Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d089cd0f-a7d1-4032-b7a7-a73e5bdb2b40",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8de294bf-f996-40e6-a967-a965d20223d3",
+            "name": "get-suggest-type",
+            "url": "{{host-local}}/api/v1/album/get-suggest-type?type=rock",
+            "method": "GET",
+            "sortNum": 300000,
+            "created": "2023-04-21T19:22:31.214Z",
+            "modified": "2023-04-23T03:34:01.822Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "rock",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "7ae1aaa0-57d8-4fc7-822d-47efa003216d",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8de294bf-f996-40e6-a967-a965d20223d3",
+            "name": "get-neighbour",
+            "url": "{{host-local}}/api/v1/playlist/get-sugesst",
+            "method": "GET",
+            "sortNum": 310000,
+            "created": "2023-04-21T19:33:07.799Z",
+            "modified": "2023-04-21T19:33:07.799Z",
+            "headers": []
+        },
+        {
+            "_id": "dd3766ef-fb1a-443e-9044-e40f8e6118a3",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8de294bf-f996-40e6-a967-a965d20223d3",
+            "name": "detailAlbum",
+            "url": "{{host-local}}/api/v1/album/62ba690129c2360f0cb734b7",
+            "method": "GET",
+            "sortNum": 320000,
+            "created": "2023-04-21T19:36:45.528Z",
+            "modified": "2023-04-28T09:15:40.360Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "912e453f-5dce-4d92-9a11-98c9cb10840e",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c3394638-d246-4e7b-91fc-efc7b95af688",
+            "name": "zalo-pay",
+            "url": "{{host-local}}/api/v1/payment/zalo-pay",
+            "method": "GET",
+            "sortNum": 340000,
+            "created": "2023-04-22T03:13:13.544Z",
+            "modified": "2023-04-22T04:07:45.132Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhNjkwMTI5YzEyNjBmMGNiNzM0YmMiLCJmaXJzdF9uYW1lIjoiVMO0biBUaOG6pXQiLCJsYXN0X25hbWUiOiJBbmggTWluaCIsInVzZXJuYW1lIjoicmljZSIsInJvbGUiOjI0MTEsImF2YXRhciI6ImF2YXRhci5qcGciLCJlbWFpbCI6InRvbnRoYXRhbmhtaW5oa3RwbUBnbWFpbC5jb20iLCJwaG9uZSI6IjA3NzY3NTA0MTgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ29vZ2xlX2lkIjoiIiwiZmFjZWJvb2tfaWQiOiIiLCJnaXRodWJfaWQiOiIiLCJ0eXBlX2FjY291bnQiOiJkZWZhdWx0IiwiaXNfdmlwIjpmYWxzZSwiaWF0IjoxNjgyMTM2NDU1LCJleHAiOjE3MTM2OTQwNTV9.vlkJYeLQTyvYXrnaUSzGvz-OEy-WY1AXRgbncb1jG08"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9ec01b08-ca90-41c5-85bb-5757a7d6fe63",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "c3394638-d246-4e7b-91fc-efc7b95af688",
+            "name": "test Copy",
+            "url": "{{host-local}}/api/v1/payment/test2?app_trans_id=230422_919943",
+            "method": "GET",
+            "sortNum": 350000,
+            "created": "2023-04-22T03:42:47.307Z",
+            "modified": "2023-04-22T03:44:46.464Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "app_trans_id",
+                    "value": "230422_919943",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "e9927290-7d77-4178-893f-2199d24c95a9",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8f04ea2c-8c49-41a9-a2d8-6276c093354d",
+            "name": "get",
+            "url": "{{host-local}}/api/v1/hub/get/6332e1b9f29948a93bc67285",
+            "method": "GET",
+            "sortNum": 350000,
+            "created": "2023-04-22T14:30:24.425Z",
+            "modified": "2023-04-23T10:20:11.804Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "793b6a03-28f7-4706-a8d1-d74ef3d27c14",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "09c95912-7914-4ff2-9677-57255201dc02",
+            "name": "get-4-options",
+            "url": "{{host-local}}/api/v1/country/get-4-options",
+            "method": "GET",
+            "sortNum": 350000,
+            "created": "2023-04-22T17:35:20.991Z",
+            "modified": "2023-04-22T17:35:43.385Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "acd8525c-ec4b-43b7-b0f6-783ff938e475",
+            "colId": "7538c1b2-3a2f-40f6-9d18-c07ed3cd597e",
+            "containerId": "8f04ea2c-8c49-41a9-a2d8-6276c093354d",
+            "name": "get-all",
+            "url": "{{host-local}}/api/v1/hub/get-all",
+            "method": "GET",
+            "sortNum": 360000,
+            "created": "2023-04-23T04:07:57.370Z",
+            "modified": "2023-04-23T04:08:16.407Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

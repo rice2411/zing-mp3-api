@@ -19,7 +19,7 @@ const SongController = {
             ? false
             : true,
       };
-      const response = await songService.getAll({}, options);
+      const response = await songService.getAll({ isDelete: false }, options);
       return res.success(BaseSuccesMessage.SUCCESS, response);
     } catch (err) {
       next(err);

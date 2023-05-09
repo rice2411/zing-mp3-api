@@ -1,3 +1,4 @@
+import { array } from "joi";
 import mongoose, { Types } from "mongoose";
 
 const paginate = require("./plugins/paginate");
@@ -16,11 +17,18 @@ const ArtistSchema = new Schema({
   },
   avatar: {
     type: String,
-    required: true,
+    default: "avatar_default.png",
   },
   followers: {
     type: Array<any>,
     require: true,
+  },
+  isDelete: {
+    type: Boolean,
+    default: false,
+  },
+  typeIds: {
+    type: Array<Types.ObjectId>,
   },
 });
 
@@ -30,7 +38,8 @@ export interface IArtist extends mongoose.Document {
   avatar: string;
   description: string;
   followers: Array<any>;
-
+  isDelete: boolean;
+  typeIds: Array<Types.ObjectId>;
   saveAsync(): any;
   removeAsync(): any;
 }

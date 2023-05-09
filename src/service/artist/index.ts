@@ -10,12 +10,91 @@ import { IArtistService } from "./interface";
 import { Album, Song } from "../../models";
 import SongResponseDTO from "../../dtos/response/song/SongResponseDTO";
 import { ApiPaginateResult } from "../../helpers";
+import fileService from "../file/file";
 
 const artistService: IArtistService = {
+  update: async (request) => {
+    try {
+      const artist = await Artist.findOne({
+        _id: new mongoose.Types.ObjectId(request.artistId),
+      }).exec();
+      if (!artist) Promise.reject(new Error("Không tìm thấy"));
+
+      if (request.name) {
+        artist.name = request.name;
+      }
+
+      if (request.typeIds) {
+        const id = [];
+        request.typeIds.map((item: any) => {
+          id.push(item.value);
+        });
+        artist.typeIds = id;
+      }
+
+      if (request.description) {
+        artist.description = request.description;
+      }
+      const file = request.avatar;
+      if (file) {
+        const response = await fileService.upload(file);
+        if (response) {
+          artist.avatar = response.name;
+        }
+      }
+      const result = await artist.saveAsync();
+
+      return Promise.resolve(result);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  },
+  delete: async (artistId) => {
+    try {
+      // Register success
+
+      const artist = await Artist.findOne({
+        _id: new mongoose.Types.ObjectId(artistId),
+      }).exec();
+      artist.isDelete = true;
+      const result = artist.saveAsync();
+
+      return Promise.resolve(result);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  },
+  create: async (request) => {
+    try {
+      // Register success
+
+      const artist = new Artist(request);
+
+      const typeIds = [];
+      request.typeIds.map((item: any) => {
+        typeIds.push(item.value);
+      });
+      artist.typeIds = typeIds;
+
+      const file = request.avatar;
+      if (file) {
+        const response = await fileService.upload(file);
+        if (response) {
+          artist.avatar = response.name;
+        }
+      }
+
+      const artistSave = await artist.saveAsync();
+
+      return Promise.resolve(artistSave);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  },
   getAll: async (searchParams, options) => {
     const query = searchParams;
     const searchQuery = options.search
-      ? { $text: { $search: `\"${options.search}\"` } }
+      ? { name: { $regex: options.search, $options: "i" } }
       : {};
     const sortQuery = { createdAt: -1 };
     const aggregates = Artist.aggregate()
@@ -40,6 +119,9 @@ const artistService: IArtistService = {
       suggest: [],
     };
     const artist = await Artist.findById(artistId);
+    if (artist.isDelete) {
+      return Promise.reject(null);
+    }
     const songs = await Song.find({
       artistId: new mongoose.Types.ObjectId(artistId),
     }).sort({ totalViews: -1 });

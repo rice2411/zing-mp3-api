@@ -9,4 +9,7 @@ export interface IAlbumService {
   getDetailAlbum: (id: String) => Promise<any>;
   getNeighbourAlbum: (typeId: string) => Promise<any>;
   getAll: (searchParams: object, options: QueryOptions) => Promise<any>;
+  create: (request: any) => Promise<any>;
+  update: (request: any) => Promise<any>;
+  delete: (albumId: string) => Promise<any>;
 }

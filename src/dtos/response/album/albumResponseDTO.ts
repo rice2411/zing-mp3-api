@@ -156,6 +156,7 @@ export default class AlbumResponseDTO {
       .setDescription(model.description)
       .setPublicationYear(model.publicationYear)
       .setFollowers(model.followers)
+      .setTypeIds(model.typeIds)
       .setType(model.type);
   }
   responseDTO(model: IAlbum) {

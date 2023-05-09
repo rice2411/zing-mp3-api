@@ -10,6 +10,46 @@ import QueryOptions from "../../dtos/QueryOptions";
 import { PAGING_DEFAULT } from "../../constants/paging";
 
 const artistController = {
+  update: async (req, res, next) => {
+    try {
+      const { name, description, typeIds, artistId } = req.body;
+      const files = req.files;
+      const result = await artistService.update({
+        artistId: artistId,
+        name: name,
+        description: description,
+        typeIds: JSON.parse(typeIds),
+        avatar: files,
+      });
+      return res.success(BaseSuccesMessage.SUCCESS, result);
+    } catch (err) {
+      next(err);
+    }
+  },
+  delete: async (req, res, next) => {
+    try {
+      const { artistId } = req.params;
+      const result = await artistService.delete(artistId);
+      return res.success(BaseSuccesMessage.SUCCESS, result);
+    } catch (err) {
+      next(err);
+    }
+  },
+  create: async (req, res, next) => {
+    try {
+      const { name, description, typeIds, avatar } = req.body;
+      const files = req.files;
+      const result = await artistService.create({
+        name: name,
+        description: description,
+        typeIds: JSON.parse(typeIds),
+        avatar: files,
+      });
+      return res.success(BaseSuccesMessage.SUCCESS, result);
+    } catch (err) {
+      next(err);
+    }
+  },
   get: async (req, res, next) => {
     try {
       const { artistId } = req.params;
@@ -42,7 +82,7 @@ const artistController = {
             ? false
             : true,
       };
-      const response = await artistService.getAll({}, options);
+      const response = await artistService.getAll({ isDelete: false }, options);
       return res.success(BaseSuccesMessage.SUCCESS, response);
     } catch (err) {
       next(err);

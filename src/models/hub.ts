@@ -21,6 +21,10 @@ const HubSchema = new Schema({
     required: true,
     default: TYPE_DEFAULT.AVATAR_DEFAULT,
   },
+  isDelete: {
+    type: Boolean,
+    default: false,
+  },
   type: { type: String, require: true, default: "" },
 });
 
@@ -30,6 +34,7 @@ export interface IHub extends mongoose.Document {
   image: string;
   avatar: string;
   type: string;
+  isDelete: boolean;
   saveAsync(): any;
   removeAsync(): any;
 }

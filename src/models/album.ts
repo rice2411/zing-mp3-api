@@ -22,7 +22,6 @@ const AlbumSchema = new Schema({
   },
   image: {
     type: String,
-    required: true,
     default: "album_default.png",
   },
   publicationYear: {
@@ -48,6 +47,10 @@ const AlbumSchema = new Schema({
     require: true,
     default: 0,
   },
+  isDelete: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export interface IAlbum extends mongoose.Document {
@@ -62,6 +65,7 @@ export interface IAlbum extends mongoose.Document {
   authors?: Array<Object>;
   likes?: Number;
   type?: string;
+  isDelete: boolean;
   saveAsync(): any;
   removeAsync(): any;
 }
