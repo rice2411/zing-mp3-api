@@ -6,16 +6,16 @@ import { UserErrorMessage } from "../../messages/error/user";
 class UserValidation {
   public registerRequest = (params: RegisterRequestDTO): any[] => {
     const errors = [];
-    if (validationUtils.isBlank(params._username)) {
+    if (validationUtils.isBlank(params.username)) {
       errors.push(UserErrorMessage.USERNAME_IS_REQUIRED);
     }
-    if (validationUtils.isBlank(params._password)) {
+    if (validationUtils.isBlank(params.password)) {
       errors.push(UserErrorMessage.PASSWORD_IS_REQUIRED);
     }
-    if (validationUtils.isBlank(params._email)) {
+    if (validationUtils.isBlank(params.email)) {
       errors.push(UserErrorMessage.EMAIL_IS_REQUIRED);
     }
-    if (params._password.length < 6) {
+    if (params.password.length < 6) {
       errors.push(UserErrorMessage.PASSWORD_TOO_SHORT);
     }
     return errors;

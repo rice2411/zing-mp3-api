@@ -12,7 +12,6 @@ const oauth2Controller = {
       const data = req.user;
       const app_host = env.app_host;
       await oauth2Service.success(data);
-
       const secret = env.oauth2Jwt.secret;
       const expire_in = env.oauth2Jwt.expiresIn;
       const payload = {

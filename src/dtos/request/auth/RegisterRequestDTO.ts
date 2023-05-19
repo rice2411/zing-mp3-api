@@ -1,20 +1,20 @@
 export default class RegisterRequestDTO {
-  public _username: string;
-  public _password: string;
-  public _email: string;
+  public username: string;
+  public password: string;
+  public email: string;
   constructor({ username, password, email }) {
-    this._username = username;
-    this._password = password;
-    this._email = email;
+    this.username = username;
+    this.password = password;
+    this.email = email;
   }
 
-  get username() {
-    return this._username;
+  get getUsername() {
+    return this.username;
   }
-  get password() {
-    return this._password;
+  get getPassword() {
+    return this.password;
   }
-  get email() {
+  get getEmail() {
     return this.email;
   }
 }

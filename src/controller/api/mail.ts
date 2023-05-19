@@ -1,3 +1,4 @@
+import { query } from "express";
 import { ca } from "date-fns/locale";
 import SendMailRequestDTO from "../../dtos/request/mail/SendMailRequestDTO";
 import { BaseSuccesMessage } from "../../messages/success/base";
@@ -24,8 +25,9 @@ const mailController = {
   },
   confirmVerify: async (req, res, next) => {
     try {
-      const { token, email } = req.body;
+      const { token, email } = req.query;
       const response = await mailService.confirmVerify(token, email);
+      console.log(response);
       return res.success(BaseSuccesMessage.SUCCESS, response);
     } catch (err) {
       next(err);

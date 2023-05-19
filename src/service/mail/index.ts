@@ -44,7 +44,8 @@ const mailService: IMailService = {
       const tokenData = new TokenDataResponseDTO(payload);
       const tokenResult: any = tokenService.generateToken(tokenData);
       const templateMail = MAIL_TEMPLATE.VERIFY_EMAIL_TEMPLATE(
-        tokenResult.token
+        tokenResult.token,
+        email
       );
       const option = {
         email: email,

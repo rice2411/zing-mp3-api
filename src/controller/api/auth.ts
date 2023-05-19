@@ -10,6 +10,7 @@ import tokenService from "../../service/token";
 import TokenDataResponseDTO from "../../dtos/response/token/TokenDataResponseDTO";
 import ResetPasswordDTO from "../../dtos/request/auth/ResetPasswordDTO";
 import { BaseSuccesMessage } from "../../messages/success/base";
+import mailService from "../../service/mail";
 
 const authController = {
   login: async (req, res, next) => {
@@ -37,10 +38,10 @@ const authController = {
       const registerRequest = new RegisterRequestDTO(req.body);
       const validErrors = userValidation.registerRequest(registerRequest);
       if (validErrors.length) return res.errors(validErrors[0], 400);
-      registerRequest._password = HashFunction.generate(
-        registerRequest._password
+      registerRequest.password = HashFunction.generate(
+        registerRequest.password
       );
-
+      await mailService.verifyMail(registerRequest.email);
       const userResponse = await authService.register(registerRequest);
       return res.success(BaseSuccesMessage.SUCCESS, userResponse);
     } catch (error) {

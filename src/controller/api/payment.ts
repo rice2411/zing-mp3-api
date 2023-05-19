@@ -14,14 +14,16 @@ const PaymentController = {
   payment: async (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1].trim();
     const info = tokenService.verifyToken(token, env.jwt.secret);
+    const apphost = env.app_host;
     const config = {
       app_id: "2553",
       key1: "PcY4iZIKFCIdgZvA6ueMcMHHUbRLYjPL",
       key2: "kLtgPl8HHhfvMuDHPwKfgfsY4Ydm9eIz",
       endpoint: "https://sb-openapi.zalopay.vn/v2/create",
     };
-
-    const embed_data = {};
+    const embed_data = {
+      redirecturl: apphost,
+    };
 
     const items = [{}];
     const transID = Math.floor(Math.random() * 1000000);
@@ -32,7 +34,7 @@ const PaymentController = {
       app_time: Date.now(), // miliseconds
       item: JSON.stringify(items),
       embed_data: JSON.stringify(embed_data),
-      amount: 279000,
+      amount: 1000,
       description: `ZingMp3 - Payment for Vip Account #${transID}`,
       bank_code: "zalopayapp",
       mac: "",

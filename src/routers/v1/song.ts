@@ -11,4 +11,10 @@ router.route("/get-lyrics/:songId").get(songController.getLyrics);
 router.route("/get-all").get(songController.getAll);
 router.route("/:id").get(songController.get);
 
+const lyrics = {
+  data: ["test"],
+  timeIn: [0],
+  timeOut: [1],
+};
+
 export default router;

@@ -162,7 +162,7 @@ const userService: IUserService = {
   create: async (request, userCount) => {
     try {
       const userFound = await User.findOne({
-        username: request._username,
+        username: request.username,
       });
       if (userFound) {
         throw new Error(AuthErrorMessage.USERNAME_IS_EXIST);
