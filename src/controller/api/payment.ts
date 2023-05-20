@@ -11,7 +11,109 @@ import { userService } from "../../service/user";
 import { transactionService } from "../../service/admin/transaction";
 
 const PaymentController = {
-  payment: async (req, res, next) => {
+  MoMoPayment: async (req, res, next) => {
+    const token = req.headers.authorization.split(" ")[1].trim();
+    const info = tokenService.verifyToken(token, env.jwt.secret);
+    const apphost = env.app_host;
+    const config = {
+      partnerCode: "MOMOIQA420180417",
+      accessKey: "Q8gbQHeDesB2Xs0t",
+      secretKey: "PPuDXq1KowPT1ftR8DvlQTHhC03aul17",
+      endpoint: "https://test-payment.momo.vn/gw_payment/transactionProcessor",
+    };
+    const transID = Math.floor(Math.random() * 1505351853752);
+    const order = {
+      partnerCode: config.partnerCode,
+      accessKey: config.accessKey,
+      requestId: `${moment().format("YYMMDD")}${transID}`,
+      amount: "1000",
+      orderId: Math.floor(Math.random() * 1000000000000).toString(),
+      orderInfo: `ZingMp3 - Payment for Vip Account #${transID}`,
+      returnUrl: apphost,
+      notifyUrl: "https://momo.vn/notify",
+
+      extraData: "",
+    };
+    let result = "";
+    Object.keys(order).find((key) => {
+      result += `${key}=${order[key]}&`;
+    });
+    const signature = cryptojs
+      .HmacSHA256(result.slice(0, -1), config.secretKey)
+      .toString();
+
+    const param = {
+      ...order,
+      signature: signature,
+      requestType: "captureMoMoWallet",
+    };
+    axios({ method: "post", url: config.endpoint, data: param })
+      .then((res2) => {
+        return res.success(BaseSuccesMessage.SUCCESS, res2.data);
+      })
+      .catch((err) => next(err));
+  },
+  MoMoCheckStatusTransaction: async (req, res, next) => {
+    const token = req.headers.authorization.split(" ")[1].trim();
+    const info = tokenService.verifyToken(token, env.jwt.secret);
+    const config = {
+      partnerCode: "MOMOIQA420180417",
+      accessKey: "Q8gbQHeDesB2Xs0t",
+      secretKey: "PPuDXq1KowPT1ftR8DvlQTHhC03aul17",
+      endpoint: "https://test-payment.momo.vn/gw_payment/transactionProcessor",
+    };
+    const { requestId, orderId, description } = req.query;
+    const order = {
+      partnerCode: config.partnerCode,
+      accessKey: config.accessKey,
+      requestId: requestId,
+      orderId: orderId,
+      requestType: "transactionStatus",
+    };
+
+    let result = "";
+    Object.keys(order).find((key) => {
+      result += `${key}=${order[key]}&`;
+    });
+    const signature = cryptojs
+      .HmacSHA256(result.slice(0, -1), config.secretKey)
+      .toString();
+    const param = {
+      ...order,
+      signature: signature,
+    };
+
+    axios({ method: "post", url: config.endpoint, data: param })
+      .then(async function (response) {
+        const errorCode = response?.data?.errorCode;
+        if (errorCode == 0) {
+          await userService.activeVip(info._id);
+          await transactionService.create({
+            userId: info._id,
+            value: response?.data.amount,
+            status: errorCode + 1,
+            app_trans_id: orderId,
+            description: description,
+            type: "momo",
+          });
+        }
+        return res.success(BaseSuccesMessage.SUCCESS, response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // axios(postConfig)
+    //   .then(async function (response) {
+    //     const data = response.data;
+
+    //     return res.success(BaseSuccesMessage.SUCCESS, data);
+    //   })
+    //   .catch(function (error) {
+    //     next(error);
+    //   });
+  },
+  ZaloPayPayment: async (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1].trim();
     const info = tokenService.verifyToken(token, env.jwt.secret);
     const apphost = env.app_host;
@@ -21,21 +123,24 @@ const PaymentController = {
       key2: "kLtgPl8HHhfvMuDHPwKfgfsY4Ydm9eIz",
       endpoint: "https://sb-openapi.zalopay.vn/v2/create",
     };
-    const embed_data = {
-      redirecturl: apphost,
-    };
 
     const items = [{}];
     const transID = Math.floor(Math.random() * 1000000);
+    const app_trans_id = `${moment().format("YYMMDD")}_${transID}`;
+    const description = `ZingMp3 - Payment for Vip Account for ${transID}`;
+    const embed_data = {
+      redirecturl:
+        apphost + `?description=${description}&apptransid=${app_trans_id}`,
+    };
     const order: any = {
       app_id: config.app_id,
-      app_trans_id: `${moment().format("YYMMDD")}_${transID}`, // translation missing: vi.docs.shared.sample_code.comments.app_trans_id
+      app_trans_id: app_trans_id, // translation missing: vi.docs.shared.sample_code.comments.app_trans_id
       app_user: info.username,
       app_time: Date.now(), // miliseconds
       item: JSON.stringify(items),
       embed_data: JSON.stringify(embed_data),
       amount: 1000,
-      description: `ZingMp3 - Payment for Vip Account #${transID}`,
+      description: description,
       bank_code: "zalopayapp",
       mac: "",
     };
@@ -67,7 +172,7 @@ const PaymentController = {
       })
       .catch((err) => next(err));
   },
-  checkPayment: async (req, res, next) => {
+  ZaloPayCheckStatusTransaction: async (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1].trim();
     const info = tokenService.verifyToken(token, env.jwt.secret);
     const config = {
@@ -103,6 +208,7 @@ const PaymentController = {
             status: return_code,
             app_trans_id: app_trans_id,
             description: description,
+            type: "zalopay",
           });
         }
         return res.success(BaseSuccesMessage.SUCCESS, response.data);

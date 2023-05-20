@@ -28,6 +28,10 @@ const TransactionSchema = new Schema(
       type: String,
       require,
     },
+    type: {
+      type: String,
+      require,
+    },
   },
   { timestamps: true }
 );
@@ -39,6 +43,7 @@ export interface ITransaction extends mongoose.Document {
   value?: Number;
   status?: Number;
   description?: String;
+  type?: String;
 
   saveAsync(): any;
   removeAsync(): any;

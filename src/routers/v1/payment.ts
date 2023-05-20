@@ -10,8 +10,17 @@ import authMiddleWare from "../../middlewares/auth/authenMiddleWare";
 const router = express.Router();
 
 router
-  .route("/zalo-pay")
-  .get(authMiddleWare.requireLogin, PaymentController.payment);
-router.route("/check").get(PaymentController.checkPayment);
+  .route("/zalo-pay/payment")
+  .get(authMiddleWare.requireLogin, PaymentController.ZaloPayPayment);
+router
+  .route("/zalo-pay/check")
+  .get(
+    authMiddleWare.requireLogin,
+    PaymentController.ZaloPayCheckStatusTransaction
+  );
+router
+  .route("/momo/payment")
+  .get(authMiddleWare.requireLogin, PaymentController.MoMoPayment);
+router.route("/momo/check").get(PaymentController.MoMoCheckStatusTransaction);
 
 export default router;
