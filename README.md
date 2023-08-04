@@ -8,7 +8,7 @@
     This is open source project about basic feature in website using nodejs and typescript
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Live Product</a>
+    <a href="https://zing-mp3-api.onrender.com">View Live Product</a>
   </p>
 </div>
 <!-- ABOUT THE PROJECT -->
